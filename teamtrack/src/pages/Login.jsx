@@ -3,7 +3,7 @@ import {
   Container, FullScreenDiv, MainDiv, InnerDiv, LogoContainer, LogoBackground, LogoImage,
   PWContainer, PWBackground, PWInnerBackground, PWCircle, PWText, IDContainer, IDBackground,
   IDCircleContainer, IDCircle, IDText, LoginButton, LoginText, RegisterButton, RegisterText,
-  CircleButton, CircleInnerContainer, CircleInner, CircleImage
+  CircleButton, CircleImage
 } from '../styles/LoginStyle';
 
 import logo from '../images/mainlogo.png';
