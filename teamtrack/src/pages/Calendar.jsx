@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function Calendar() {
   const { sport } = useParams();
-  // const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     fetchEvents(sport);
@@ -13,35 +13,48 @@ function Calendar() {
 
   const fetchEvents = async (sport) => {
     try {
-      const response = await axios.get(
-        `https://localhost:8000/calendar/${sport}`
+      const access_token = localStorage.getItem("access_token"); // 실제 액세스 토큰 값으로 대체
+      // const sport_id = "your_sport_id_here"; // 실제 sport_id 값으로 대체
+      // const team_id = "your_team_id_here"; // 실제 team_id 값으로 대체
+
+      const response = await axios.post(
+        `https://localhost:8000/select-team`,
+        {
+          sport_name: sport,
+          team_name: "삼성",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        }
       );
-      // setEvents(response.data);
+      setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
   };
 
-  const events = [
-    {
-      date: "2023-08-01T12:00:00Z",
-      time: "12:00",
-      ourTeam: "Team A",
-      opponentTeam: "Team B",
-    },
-    {
-      date: "2023-08-01T15:00:00Z",
-      time: "15:00",
-      ourTeam: "Team C",
-      opponentTeam: "Team D",
-    },
-    {
-      date: "2023-08-02T18:00:00Z",
-      time: "18:00",
-      ourTeam: "Team E",
-      opponentTeam: "Team F",
-    },
-  ];
+  // const events = [
+  //   {
+  //     date: "2023-08-01T12:00:00Z",
+  //     time: "12:00",
+  //     ourTeam: "Team A",
+  //     opponentTeam: "Team B",
+  //   },
+  //   {
+  //     date: "2023-08-01T15:00:00Z",
+  //     time: "15:00",
+  //     ourTeam: "Team C",
+  //     opponentTeam: "Team D",
+  //   },
+  //   {
+  //     date: "2023-08-02T18:00:00Z",
+  //     time: "18:00",
+  //     ourTeam: "Team E",
+  //     opponentTeam: "Team F",
+  //   },
+  // ];
 
   // 8월 달력 배열 생성
   const augustDays = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -61,12 +74,16 @@ function Calendar() {
   return (
     <div>
       <div className="calendar-title">
-        <h1><span className="highlight">{sport}</span> August schedule</h1>
+        <h1>
+          <span className="highlight">{sport}</span> August schedule
+        </h1>
       </div>
       <div className="calendar">
         <div className="calendar-weekdays">
           {weekdays.map((day, index) => (
-            <div key={index} className="calendar-weekday">{day}</div>
+            <div key={index} className="calendar-weekday">
+              {day}
+            </div>
           ))}
         </div>
         <div className="calendar-days">
