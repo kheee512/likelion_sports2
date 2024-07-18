@@ -25,10 +25,14 @@ const Home = () => {
     navigate(`/calendar/${sport}`);
   };
 
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
   return (
     <Container>
       <WhiteDiv />
-      <LoginContainer>
+      <LoginContainer onClick={handleLoginClick}>
         <LoginButton>
           <LoginCircle>
             <LoginText>L</LoginText>
@@ -40,35 +44,33 @@ const Home = () => {
         </CrossContainer>
       </LoginContainer>
 
-
       <InnerWhiteDiv />
       <BlueDivContainer>
         <BlueDiv />
         <BlueImage src={mainlogo} />
       </BlueDivContainer>
 
-      <TextContainer left={16}>
+      <TextContainer left={16} onClick={() => handleSportSelect('soccer')}>
         <TextBackground />
-        <button onClick={() => handleSportSelect('soccer')}>축구</button>
         <Text>Soccer</Text>
       </TextContainer>
-      <TextContainer left={28}>
+      <TextContainer left={28} onClick={() => handleSportSelect('basketball')}>
         <TextBackground />
         <Text>Basketball</Text>
       </TextContainer>
-      <TextContainer left={40}>
+      <TextContainer left={40} onClick={() => handleSportSelect('baseball')}>
         <TextBackground />
         <Text>Baseball</Text>
       </TextContainer>
-      <TextContainer left={52}>
+      <TextContainer left={52} onClick={() => handleSportSelect('volleyball')}>
         <TextBackground />
         <Text>Volleyball</Text>
       </TextContainer>
-      <TextContainer left={64}>
+      <TextContainer left={64} onClick={() => handleSportSelect('esports')}>
         <TextBackground />
         <Text>E-sports</Text>
       </TextContainer>
-      <TextContainer left={76}>
+      <TextContainer left={76} onClick={() => handleSportSelect('swimming')}>
         <TextBackground />
         <Text>Swimming</Text>
       </TextContainer>
@@ -77,7 +79,6 @@ const Home = () => {
         <PremiumCircle />
         <PremiumArrow />
       </PremiumContainer>
-
 
       <ImageContainer>
         <LargeImageContainer top="75vh" opacity="0.90" justifyContent="flex-start">
@@ -92,22 +93,16 @@ const Home = () => {
           <LargeImage src={img3} />
         </LargeImageContainer>
 
-        
         <SmallImage src={img1} left="8%" />
         <SmallImage src={img6} left="38%" />
         <SmallImage src={img4} left="68%" />
-        
 
         <InfoContainer>
           <InfoCircle />
           <InfoText>i</InfoText>
           <PremiumText>Click for premium mode</PremiumText>
         </InfoContainer>
-
       </ImageContainer>
-
-
-
     </Container>
   );
 };
