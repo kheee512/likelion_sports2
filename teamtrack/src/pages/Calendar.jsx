@@ -4,14 +4,14 @@ import "../styles/Calendar.css";
 import { useParams } from "react-router-dom";
 import icon_1 from "../images/기아-logo.png";
 import icon_2 from "../images/두산-logo.png";
-import icon_3 from "../images/롯데-logo.png"
-import icon_4 from "../images/삼성-logo.png"
-import icon_5 from "../images/키움-logo.png"
-import icon_6 from "../images/한화-logo.png"
-import icon_7 from "../images/kt-logo.png"
-import icon_8 from "../images/lg-logo.png"
-import icon_9 from "../images/nc-logo.png"
-import icon_10 from "../images/ssg-logo.png"
+import icon_3 from "../images/롯데-logo.png";
+import icon_4 from "../images/삼성-logo.png";
+import icon_5 from "../images/키움-logo.png";
+import icon_6 from "../images/한화-logo.png";
+import icon_7 from "../images/kt-logo.png";
+import icon_8 from "../images/lg-logo.png";
+import icon_9 from "../images/nc-logo.png";
+import icon_10 from "../images/ssg-logo.png";
 
 function Calendar() {
   const { sport } = useParams();
@@ -30,7 +30,7 @@ function Calendar() {
       const response = await axios.post(
         `http://localhost:8000/select-team`,
         {
-          sport_name: sport,
+          sport_name: "야구",
           team_name: "삼성",
         },
         {
@@ -47,16 +47,16 @@ function Calendar() {
 
   // 팀 이름에 따른 이미지 매핑 객체
   const teamLogos = {
-    "기아": icon_1,
-    "두산": icon_2,
-    "롯데": icon_3,
-    "삼성": icon_4,
-    "키움": icon_5,
-    "한화": icon_6,
-    "kt": icon_7,
-    "lg": icon_8,
-    "nc": icon_9,
-    "ssg": icon_10
+    기아: icon_1,
+    두산: icon_2,
+    롯데: icon_3,
+    삼성: icon_4,
+    키움: icon_5,
+    한화: icon_6,
+    kt: icon_7,
+    lg: icon_8,
+    nc: icon_9,
+    ssg: icon_10,
     // 추가적인 팀과 로고 경로를 여기에 추가
   };
 
@@ -158,7 +158,6 @@ function Calendar() {
                       )}
                     </li>
                   ))}
-                  
                 </ul>
               ) : (
                 <p>경기 없음</p>
