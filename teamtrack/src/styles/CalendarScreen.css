@@ -23,9 +23,9 @@
 
 .side-bar {
   width: 30%; /* 가로 비율 3 */
-  background-color: #0021cf; /* Light Gray */
   padding: 20px;
   border-right: 1px solid #E5E7EB; /* Light Gray */
+  background-color: #0021cf;
 }
 
 .profile {
@@ -37,9 +37,8 @@
 }
 
 .advertise {
-  flex: 6;
-  margin-top: auto;
   background-color: #ffffff;
+  border-radius: 20px;
 }
 
 .advertise img {
@@ -51,3 +50,8 @@
   padding: 20px;
 }
 
+.advertise h2 {
+  color: #0021cf;
+  font-weight: 200;
+  font-size: 25px;
+}
