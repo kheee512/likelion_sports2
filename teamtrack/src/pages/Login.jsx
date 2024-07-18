@@ -8,6 +8,7 @@ import {
 
 import logo from '../images/mainlogo.png';
 import chatImg from '../images/27.svg';
+import KakaoLoginButton from '../components/KakaoLoginButton';
 
 const Login = () => (
     <Container>
@@ -49,10 +50,9 @@ const Login = () => (
             <RegisterText>REGISTER</RegisterText>
         </RegisterButton>
 
+        {/* 카카오 로그인 버튼 */}
         <CircleButton>
-            
-
-            <CircleImage src={chatImg} />
+            <KakaoLoginButton />
         </CircleButton>
 
 

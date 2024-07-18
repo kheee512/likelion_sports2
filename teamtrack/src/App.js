@@ -3,18 +3,21 @@ import { Route, Routes } from "react-router-dom";
 import CalendarScreen from "./pages/CalendarScreen";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-// import KakaoLogin from "./components/KakaoLogin";
+import KakaoCallback from "./components/KakaoCallback";
 
-// <Route path="/" element={<KakaoLogin />} />
-// <Route path="/auth/kakao" element={<Auth />} />
-// <Route path="/calendar" element={<Calendar />} />
+
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/Home" element={<Home />}></Route>
+        
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/auth/kakao"
+          element={<KakaoCallback />}
+        />
         <Route path="/calendar/:sport" element={<CalendarScreen />} />
         
       </Routes>
